@@ -9,6 +9,12 @@
 	display:none;
 	position:absolute;
 	overflow:hidden;
+	
+	transition: box-shadow 0.15s ease-out;
+	-moz-transition: box-shadow 0.15s ease-out;
+	-webkit-transition:  box-shadow 0.15s ease-out;
+	-o-transition:  box-shadow 0.15s ease-out;
+	-ms-transition:  box-shadow 0.15s ease-out;
 }
 .tile:visited{
 	color:#FFF;
@@ -21,9 +27,9 @@
 	text-decoration: none;
 	color:#FFF;
 	border: 1px solid #FFF;
-	-moz-box-shadow: 0 0 7px #fff;
-	-webkit-box-shadow: 0 0 7px #fff;
-	box-shadow: 0 0 7px #fff;
+	-moz-box-shadow: 0 0 10px #333;
+	-webkit-box-shadow: 0 0 10px #333;
+	box-shadow: 0 0 10px #333;
 }
 
 /* tileTitleText */
@@ -39,6 +45,16 @@
 	font-size: 13px;
 	position:absolute;
 	
+}
+
+/* When a tile links to nowhere, use this as optClass to not confuse visitors */
+a.noClick:hover{
+	cursor:default;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	padding: 1px;
+	border:none;
 }
 
 /*Image Slider Tile */

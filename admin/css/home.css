@@ -1,9 +1,9 @@
 .pageLink{
-	color:#FFF;
+	color:#111;
 	text-decoration:none;
 }
 .pageLink:hover{
-	color:#FFF;
+	color:#111;
 	text-decoration:underline;
 }
 #newPage{

@@ -1,31 +1,40 @@
 /*TILES*/
 tiles = function(){ /*Insert your own tiles here*/
-	/* Home */
-	tileTitleText(0,0,0,2,1,'blue','A new page to test','Welcome','<span style="font-size:14px;">This is your test version of the Metro UI template! Adapt it to your own needs. Be creative!<span>');
-	tileTitleTextImage(0,1,1,2,2,'red','external:http://metro-webdesign.info/#!Donate','Terms of use',
-	"This template is free for personal use (although a donation is very welcome). If you use this for a commercial website, please consider donating if you're happy with the result. I worked hundredss of hours on this to make this bug-free, cross-browser compatible, writing tutorials, giving support when having problems... <br/><br/><em>This template is as is and I give no warranty.</em>",'img/exclamation.png',0.4*scale,15,0);
-	tileImageSlider(0,2,0,1,1,'#FF6600','&Another group','img/whiteArrow.png',0.5*scale,'Go to last tilegroup',0.7);
-	tileLive(0,0,1,1,2,'#669900','external:http://www.w3schools.com/tags/ref_colorpicker.asp','Colors','','','','',3000,
-	'I know the colors of this test version are ugly','But be creative and make it yours!',"Click here to go to a nice colorpicker at w3schools","","");
+
+	tileTitleText(0,0,0,2,1,'#789600','about','What is it?','This is a framework or template to create websites based on the Windows 8 Metro UI style.','');
+	tileLive(0,2,0,1,1,"#C33","","<span style='font-size:34px;'>Live tile</span>","","","","",3000,"Live tiles","Scrolling tile pages","SEO optimizations","Slideshow tiles","Admin Control panel",'noClick');
 	
-	/*GROUP2: Some tilse */
-	tileSlideshow(1,0,0,2,2,'','','Slideshow',4000,'img/bg/img1.png','img/bg/img2.jpg','img/bg/img3.jpg','','',"noClick"); // we add a noClick class to let the user know there's no link
-	tileTitleText(1,2,0,1,1,'#336699','external:http://metro-webdesign.info','<--','For more effects, check the tutorial at http://metro-webdesign.info');
-	tileTitleText(1,2,1,1,1,'red','Testing slides','Click me','...to go to a page with content');
-	tileTitleText(1,0,2,2,1,'url("img/bg/green.png")','','Background image','You can also use a background image, but be careful as it uses much bandwidth and it can make the animations sloppy!' , "noClick");
-	tileTitleText(1,2,2,2,1,'','external:http://www.colorzilla.com/gradient-editor/','CSS3 Gradients',"It's better to use gradients in CSS3 than background-images, see this example how. Click on this tile for a CSS3 gradients-generator","blueGradient");
+	/*tileTitleText(0,0,1,2,0.5,'','','<span style="font-size:24px;">Clean & Sleek</span>','<span style="font-size:13px;">content-based layout</span>','noClick greenTile');
+	tileTitleText(0,0,1.5,2,0.5,'','','<span style="font-size:24px;">Easy configuration</span>','<span style="font-size:13px;">create tiles with just a single line of code</span>','noClick orangeTile');
+	tileTitleText(0,1,2,2,0.5,'','','<span style="font-size:24px;">Customisable</span>','<span style="font-size:13px;">Commented & easy-to-understand coding</span>','alignRight noClick redTile');
+	tileTitleText(0,1,2.5,2,0.5,'','','<span style="font-size:24px;">SEO optimized</span>','<span style="font-size:13px;">So Mr Google will find your pages</span>','alignRight noClick darkBlueTile');
+	tileTitleText(0,0,2,1,1,'','','<span style="font-size:24px;">Browsers</span>','<span style="font-size:13px;">IE 7, 8 & 9 , Chrome, Firefox, Opera, Safari...</span>','noClick blueTile');
+	tileTitleText(0,0,3,2,0.5,'','','<span style="font-size:24px;">The latest techniques</span>','<span style="font-size:13px;">CSS3, jQuery,... for a smooth expierence</span>','noClick lightBlueTile');
+	*/
+	tileSlideshow(0,0,1,1,1,'','','',3000,'img/bg/img1.png','img/bg/img2.jpg','img/bg/img3.jpg','','','noClick');
+	tileTitleText(0,1,1,2,1,'#F90','features','Features','Easy content managing, automatic tile positioning, many types of tiles (slideshow, livetiles...), SEO optimized...','blueTile');
+
 	
-	/*GROUP 3: Another group */
-	tileImageAdvanced(2,0,1,1,2,'green','','img/exclamation.png',0.9,1.2, "noClick");
-	tileTitleText(2,1,0,1,1,'green','Other content to test','Another page','With content');
-	tileCustom(2,0,0,1,1,"#F90",'&home',"<img src='img/whiteArrow.png' height='64' width='64' style='margin-left:32px;margin-top:16px;'/><div id='title' style='margin-left:15px;margin-top:10px;font-size:13px;'>Go back to group 1</div>",'turnedArrow');
+	/*Download */
+	tileTitleTextImage(1,0,0,2,1,'#F60','',"It's free","v2.1.0  (13/08/2012)","img/icons/download_s.png",50,10,5,'');
+	tileTitleText(1,0,1,1,1,'#F90',"changelog","<span style='font-size:23px;'>Changelog <br>Upgrade<br> Bugs</span>","","orangeTile");
+	tileTitleText(1,0,2,1,1,'#C33',"terms of use","<span style='font-size:20px;'>Copyright <br> & <br> Terms of use</span>","","darkBlueTile");
+	tileTitleText(1,1,1,1,1,'#789600',"donate","Donate","","lightBlueTile");
+	
+	
+	/*Help*/
+//	tileTitleText(3,0,0,2,1,'green','tutorial','Tutorials','Getting started, plugins, extra features...');
+	tileLive(2,0,0,2,1,'#C33','tutorial','Tutorials','','','','',3000,'Getting started','Plugins','Extra features','Tricks','','orangeTile');
+	tileCustom(2,1,1,1,1,"#F60",'forum/',"<img src='img/icons/textbubble.png' height='59' width='72' style='margin-left:28px;margin-top:16px;'/><div id='title' style='margin-left:20px'>Forum</div>",'darkBlueTile');
+	tileImageSlider(2,2,0,1,1,"#789600","Contact","img/icons/contact.png",scale*0.7,"<span style='font-size:30px; padding-left:5px;'>Contact</span>",0.5,"lightBlueTile");
+	tileCustom(2,0,1,1,1,"#F90",'Fixes',"<div id='title' style='font-size:50px; margin-top:-8px;'>Fixes</div>",'redTile');
 }
 
 /*Tile Templates */
 tileTitleText = function(group,x,y,width,height,bg,linkPage,title,text,optClass){ /* Tile with only a title and description */
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*scaleSpace+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px; \
 	background:"+bg+";'>\
 	<div id='title'>"+title+"</div>\
@@ -35,7 +44,7 @@ tileTitleText = function(group,x,y,width,height,bg,linkPage,title,text,optClass)
 tileImage = function(group,x,y,bg,linkPage,img,imgSize,optClass){ /* Tile with only an image */
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*scaleSpace+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+scale+"px; height:"+scale+"px; \
 	background:"+bg+";'>\
 	<img src='"+img+"' height="+imgSize+" width="+imgSize+" \
@@ -46,7 +55,7 @@ tileImageAdvanced = function(group,x,y,width,height,bg,linkPage,img,imgSizeWidth
 	drawHeight = (imgSizeWidth*scaleSpace-tileSpace)
 	drawWidth = (imgSizeHeight*scaleSpace-tileSpace)
 	tileContent += ("<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*scaleSpace+"px ;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px ;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px; \
 	background:"+bg+";'>\
 	<img src='"+img+"' width="+drawWidth+" height="+drawHeight+" \
@@ -56,7 +65,7 @@ tileImageAdvanced = function(group,x,y,width,height,bg,linkPage,img,imgSizeWidth
 tileTitleTextImage = function(group,x,y,width,height,bg,linkPage,title,text,img,imgSize,imgToTop,imgToLeft,optClass){ // Tile with an image on the left side, a title, and a description, width is always 2
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*scaleSpace+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px; \
 	background:"+bg+";'>\
 	<img style='float:left; margin-top:"+imgToTop+"px;margin-left:"+imgToLeft+"px;' src='"+img+"' height="+imgSize+" width="+imgSize+"/> \
@@ -75,7 +84,7 @@ tileLive = function(group,x,y,width,height,bg,linkPage,title,img,imgSize,imgToTo
 	}
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*scaleSpace+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px; \
 	background:"+bg+";'>\
 	"+imgInsert+"\
@@ -86,7 +95,7 @@ tileLive = function(group,x,y,width,height,bg,linkPage,title,img,imgSize,imgToTo
 }
 tileImageSlider = function(group,x,y,width,height,bg,linkPage,img,imgsize, text,slideDistance,optClass){
 	tileContent += ("<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+" tileImageSlider' id='"+slideDistance+" ' style=' \
-	margin-top:"+y*scaleSpace+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px; \
 	background:"+bg+"'>\
 	<div class='tileSliderWrapper' style='position:absolute;'>\
@@ -107,7 +116,7 @@ tileSlideshow = function(group,x,y,width,height,bg,linkPage,title,speed,path1,pa
 	var sid="slideshow_"+(group+''+x+''+y).replace(/\./g,'_')
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*(scaleSpace)+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*(scaleSpace)-tileSpace)+"px; height:"+(height*(scaleSpace)-tileSpace)+"px; \
 	background:"+bg+";'>\
 	<div class='tileSlideshowTitle'>"+title+"</div>\
@@ -123,7 +132,7 @@ tileSlideshow = function(group,x,y,width,height,bg,linkPage,title,speed,path1,pa
 tileCustom = function(group,x,y,width,height,bg,linkPage,content,optClass){ // make your own tiles
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
-	margin-top:"+y*scaleSpace+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
+	margin-top:"+((y*scaleSpace)+45)+"px;margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px; \
 	background:"+bg+";'>\
 	"+content+"\

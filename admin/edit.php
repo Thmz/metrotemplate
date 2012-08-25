@@ -32,10 +32,10 @@ if(isset($_GET['p'])){
 	<script type="text/javascript" language="javascript" src="js/edit.js"></script>
 </head> 
 <body>
+<div id="headerWrapper"><div id="header">
+<h1><a href="home.php">Admin</a>  <a href="../" target='_blank' style='font-size:16px; margin-left:30px;'>Visit site</a></h1><a id="logoutLink" href="#" onclick='logout();'>Logout</a>
+</div></div>
 	<div id="wrapper">
-		<h1><a href="home.php">Admin</a>  <a href="../" target='_blank' style='font-size:16px; margin-left:30px;'>Visit site</a></h1>
-        <a id="logoutLink" href="#" onclick='logout();'>Logout</a>
-        <hr />
 		<h2>Edit <em><?php echo $_GET['p']?></em><button type="submit" id="deleteButton">Delete!</button></h2><br />
 		<?php
         if($error == ''){//no errors

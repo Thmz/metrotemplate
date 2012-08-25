@@ -9,7 +9,6 @@ currentPage = ''; // just init
 
 /*Check for IE8, as the fadeout animations don't work with IE */
 var Browser = {Version: function() { var version = 999; if (navigator.appVersion.indexOf("MSIE") != -1)version = parseFloat(navigator.appVersion.split("MSIE")[1]);return version;}}
-if(Browser.Version() ==8){hideSpeed = 0;}
 
 /*Replace spaces by hyphens. ( - ) */
 String.prototype.stripSpaces = function(){ return this.replace(/\s/g,"_")}
@@ -59,12 +58,12 @@ goTileGroup = function(n){
 	if(n<0){n=0};
 	$("#leftArrow,#rightArrow").hide();
 	if(Browser.Version() <10){ // IE 7 8 and 9 cannot use CSS3 animations
-	$('#content').stop().animate({"margin-left": -tileGroupSpace*n}, 500, function(){
-		currentTileGroup = n;	
-		document.title = siteTitle+" | "+tileGroupTitles[n];
-		scrolling = false;
-		placeArrows(300);	
-	});	
+		$('#content').stop().animate({"margin-left": -tileGroupSpace*n}, 500, function(){
+			currentTileGroup = n;	
+			document.title = siteTitle+" | "+tileGroupTitles[n];
+			scrolling = false;
+			placeArrows(300);	
+		});
 	}else{
 		setTimeout(function(){
 			currentTileGroup = n;	
@@ -122,19 +121,20 @@ $(document).on("click","a",function(){
 	};
 });
 
-/* Generates the menu, makes Navigation items */
-makeMenu = function(){
-	navItems = '';
+/* Generates the subnav- menu, makes sub-Navigation items */
+makeNav = function(){
+	subNavItems = '';
 	for(var i in menuLink){
-		navItems += "<a "+makeLink(menuLink[i])+" style='background-color:"+menuColor[i]+";' class='navItem' id='navI"+menuLink[i].toLowerCase().replace("&","A9M8").stripSpaces()+"'>"+i+"</a>";
+		var l = makeLink(menuLink[i]);
+		subNavItems += "<a style='background-color:"+menuColor[i]+";' id='subNavI"+menuLink[i].toLowerCase().replace("&","A9M8").stripSpaces()+"' "+l+">"+i+"</a>";
 	}
-	$("#nav").html("").append(navItems);
+	$("#subNav").html(subNavItems);
+	curNav();
 }
 
-/* highlights current menu */
-curMenu = function(){
-	$(".navItem").removeClass("navItemActive")
-	$("#navI"+hash.toLowerCase().replace("&","A9M8").stripSpaces()).addClass("navItemActive");
+/* highlights current sub-navigation-item */
+curNav = function(){
+	$("#subNavI"+hash.toLowerCase().replace("&","A9M8").stripSpaces()).addClass("subNavItemActive");
 }
 
 /* To make valid links */
@@ -158,4 +158,30 @@ makeLink = function(lp){
 		return t+"href='"+lp+"'";
 	}
 	return t+"href='#!"+lp.stripSpaces()+"'";	
+}
+
+/*Charm bar */
+curMainNav = function(){ // highlights current charm
+	$(".navItem").removeClass("navActive");
+	if(hash==""){
+		$('a[href="#&home"]').addClass("navActive");
+	}
+	$(".navItem").each(function(){ /*highlights on the tiles page, we have to do it this way for case-insensitivity*/
+		if($(this).attr("href").toLowerCase().replace(" ","_")=="#"+hash.toLowerCase()){
+			$(this).addClass("navActive");
+		};
+	});
+}
+mainNav = function(w){
+	$(".navItem").removeClass("navActive");
+	$("#"+w).addClass("navActive");
+}
+
+if(Browser.Version() <10){
+	$(document).on("mouseenter","#subNav a",function(){
+		$(this).stop(true,false).animate({height:36},150);
+	});
+	$(document).on("mouseout","#subNav a",function(){
+		$(this).animate({height:24},150);
+	});
 }

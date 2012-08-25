@@ -3,11 +3,7 @@
 
 /*Will be called if we want to show the homepage with tile-pages */
 prepareShowHome=function(){ /*do the fades*/
-	if(hideMenu){
-		$("#nav, #navStripe").stop().fadeOut(hideSpeed)
-	}else{
-		$("#navStripe").stop().fadeOut(hideSpeed)
-	};
+	$("#subNav").stop().fadeOut(hideSpeed)
 	$("#content").fadeOut(hideSpeed,function(){
 		currentPage = "home";
 		showHome();
@@ -16,15 +12,7 @@ prepareShowHome=function(){ /*do the fades*/
 
 /*Show the homepage with tiles */
 showHome = function(){
-	if(hideMenu){
-		$("#nav, #navStripe").hide() // be sure it's gone
-	}else{
-		curMenu();
-		if (!$(".navItemActive")[0]){
-			$("#navIA9M8home").addClass("navItemActive");
-		}
-		$("#navStripe").hide()
-	}
+	$("#subNav").hide() // be sure it's gone
 	$("html").css("overflow-x","hidden");
 	$("#catchScroll").mousedown(function(e){if(e.button==1)return false}); // do not enable middlemouse scroll cause it's uglyyy
 	
@@ -34,16 +22,17 @@ showHome = function(){
 	}
 	document.title = siteTitle+' | '+siteTitleHome;
 	
-	$("#content").width('auto').css('margin-left',-tileGroupSpace*currentTileGroup).css('margin-top',70).html(tileContent).fadeIn(300);// place our new content and be sure it will be shown
+	$("#content").width('auto').css('margin-left',-tileGroupSpace*currentTileGroup).html(tileContent).fadeIn(300);// place our new content and be sure it will be shown
 	afterTilesInject();
 	
 	 $(window).resize(); // check the scrollbars now, for the first time
-	
+	 curMainNav();
 	$(".tile").show(700);
 	setTimeout(function(){; /*wait with the arrows till the tiles are shown */
 			 placeArrows(400); // must ALWAYS happen after ALL tiles are showed! (in this case, tiles after 700ms, arrows after 350+800 ms
 			 $(window).resize(); // check the scrollbars now, same as ^
 			 afterTilesShow();
+			
 	},701);
 	
 	$(document).keyup(function (e) { /* Keyboard press to move tilepages */
@@ -66,7 +55,7 @@ showHome = function(){
 showPage = function(){
 	$("html").css("overflow-x","auto");
 	$content = $("#content");
-	$content.css('margin-left',0).css("margin-top",30).width($("#wrapper").width()).html("<img src='img/loader.gif' height='24' width='24'/>").fadeIn(1000);
+	$content.css('margin-left',0).width($("#wrapper").width()).html("<img src='img/loader.gif' height='24' width='24'/>").fadeIn(1000);
 	var page = currentHash.addSpaces().replace("#","");
 	if((page = realArrayIndex(pageLink,page)) == -1){
 		document.title = siteTitle+" | Page not Found";
@@ -79,9 +68,8 @@ showPage = function(){
 			}
 			$content.stop().fadeOut(50,function(){
 				$content.html(newContent);
-				makeMenu();
-				$("#navStripe, #nav").stop().fadeIn(450);
-				curMenu();
+				makeNav();
+				$("#subNav").stop().fadeIn(450);
 					
 				if(window.location.hash.indexOf("&show_all") != -1){
 					$("div.sliderContent").show();
@@ -115,8 +103,8 @@ $(window).hashchange(function(){
 		if(requestedTileGroup == currentTileGroup){ // ohw, we are already on that tilegroup, but we'll reload it to not confuse the visitor
 			prepareShowHome();
 		}else{
-			if(!hideMenu){curMenu()};
 			goTileGroup(requestedTileGroup);
+			curMainNav();
 		}
 	}else{		
 		if(currentHash == "home" || !currentHash || currentHash == ""){ // if user wants to go home		
@@ -136,14 +124,12 @@ $(window).hashchange(function(){
 $(document).ready(function(){
 	
 	/*Create the tile content */ 
-	tileContent = "<img id='leftArrow' src='img/whiteArrow.png'/><img id='rightArrow' src='img/whiteArrow.png'/>";
+	tileContent = "<img id='leftArrow' src='img/arrow.png'/><img id='rightArrow' src='img/arrow.png'/>";
 	tiles(); // get our tiles into the content			
 	for(i=0;i<tileGroupCount;i++){ 
 		var name = tileGroupTitles[i];
 		tileContent += "<a id='subTitle' style='margin-left:"+(i*tileGroupSpace)+"px;' href='#&"+name+"'><h2>"+name+"</h2></a>"; /* Add the group title of tileGroups */
 	}
-	
-	makeMenu();
 	
 	/*Load the requested page */
 	$(window).hashchange();

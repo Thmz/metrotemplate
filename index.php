@@ -10,6 +10,7 @@ require_once('jsminplus.php');
 /* FILES*/
 $cssFiles = array( /* Add your css files to this array */
 	'css/main.css',
+	'css/nav.css',
 	'css/tiles.css',
 	'css/misc.css'
 );
@@ -32,11 +33,23 @@ require_once("seo.php");
     <meta name="Description" content="<?php echo $siteDescription;?>"/>
     <meta name="keywords" content="<?php echo $siteKeywords;?>"/>
 	<title><?php echo $siteTitle;?></title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'><!-- Include a nicce font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'><!-- Include a nicce font -->
 	<?php echo $css//include css lines?>  
+    <!--IE Fallbacks -->
+    <!--[if lte IE 7]>
+    <style>
+    #content{margin-top: 80px;}
+    </style>
+    <![endif]-->
     <!--[if lte IE 8]>
 	<style>
     #leftArrow{filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);}
+    .subNavItemActive{text-decoration:underline;}
+    </style>
+	<![endif]-->
+    <!--[if IE]>
+	<style>
+  	#subNav a:hover{height:24px;}
     </style>
 	<![endif]-->
     <script>
@@ -55,11 +68,29 @@ require_once("seo.php");
 <body>
 <div id="catchScroll"></div>
 <div id="wrapper">
-	<div id="header">
-		<h1 style='margin-top:0px;display: inline;'><a id="siteTitle" href="#"><?php echo $siteName?></a></h1>
-        <div id="nav"></div>
-   		<div id="navStripe"></div>
-	</div>
+	<div id="headerWrapper">
+		<div id="header">
+			<h1><a id="siteTitle" href="#"><?php echo $siteName?></a></h1>
+     	   	<div id="nav">
+             <a id="home" class="navItem"  href="#&home">
+    		<img src="img/icons/home.png" class="navImage" /><br />
+   			HOME
+    		</a>
+   			<a id="download" class="navItem" href="#&download">
+     		<img src="img/icons/download_s.png" class="navImage" /><br />
+  			DOWNLOAD
+    		</a>
+   			 <a id="help" class="navItem" href="#&help">
+     		<img src="img/icons/questionmark.png" class="navImage" /><br />
+   			HELP
+    		</a>
+   		</div>      
+		</div>
+    </div>
+    <div id="subNavWrapper">
+    	<div id="subNav">
+        </div>
+    </div>
    	<div id="content">
 		<!--You can place here some content that will be seen by non-javascript users-->
 		<?php
@@ -77,7 +108,7 @@ require_once("seo.php");
 		}
 		?>
 	</div>
-	<a id="footer" href="http://metro-webdesign.info" alt="Free Metro UI template" title="Create with Metro UI template"><!--Please leave this link, only donators may remove this! --><?php echo $siteFooter?></a>
+	<a id="footer" href="http://metro-webdesign.info" alt="Free Metro UI template" title="Created with Metro UI template"><!--Please leave this link, only donators may remove this! --><?php echo $siteFooter?></a>
 </div>
 </body>
 </html>

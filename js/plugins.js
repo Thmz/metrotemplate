@@ -10,6 +10,23 @@
 /* METRO UI TEMPLATE
 /* Copyright 2012 Thomas Verelst, http://metro-webdesign.info*/
 
+/*EVENT TRIGGERS */
+afterTilesInject = function(){ // Will be called after the tiles are injected into the #content div, you can add code here
+}
+
+afterTilesShow = function(){// Will be called after the tiles are shown, you can add code here
+}
+
+afterSubPageLoad = function(){ // Will be called after a subpage is loaded, you can add code here
+}
+
+onHashChange = function(){ // Will be called when the hash (so page, or tilegroup) changes 
+}
+
+onSiteLoad = function(){ // Will be called when the site is opened for the first time/ when the document is loaded (not when the page changes)
+}
+
+
 /* LIVETILES */
 newLiveTile = function(id,group,texts,speed,slide){
 	if(currentPage=="home" && scrolling==false && (group==currentTileGroup ||group == currentTileGroup+1) ){//if we're home
@@ -53,17 +70,3 @@ newSlideshow = function(id,group,images,speed,slide){
 	setTimeout(function(){newSlideshow(id,group,images,speed,slide)},speed);
 }
 
-afterTilesInject = function(){ // Will be called after the tiles are injected into the #content div, you can add code here
-}
-
-afterTilesShow = function(){// Will be called after the tiles are shown, you can add code here
-}
-
-afterSubPageLoad = function(){ // Will be called after a subpage is loaded, you can add code here
-}
-
-onHashChange = function(){ // Will be called when the hash (so page, or tilegroup) changes 
-}
-
-onSiteLoad = function(){ // Will be called when the site is opened for the first time/ when the document is loaded (not when the page changes)
-}

@@ -1,41 +1,85 @@
+/* FORMS */
+.orangeButton, button{
+	 border:1px solid #FFF;
+	 background-color:#F60;
+	 color: #FFF;
+	 padding:2px 5px;
+	 margin: 5px 3px 3px 3px;
+}
+.orangeButton:hover, button:hover{
+	background-color:#F90;
+	cursor:pointer;
+}
+.greenButton{
+	background-color:#789600;
+}
+.greenButton:hover{
+	background-color:#607800;
+}
+.redButton{
+	background-color:#C33;
+}
+.redButton:hover{
+	background-color:#F60;
+}
+.blueButton{
+	background-color:#426EA0;
+}
+.blueButton:hover{
+	background-color:#688BB3;
+}
+.greyButton{
+	background-color:#444;
+}
+.greyButton:hover{
+	background-color:#888;
+}
+
 /* SLIDES (show a title, and when clicked on the content shows with a nice slide animation) */
 div.sliderContent{
 	padding: 10px;
 }
-div.sliderHead{
+div.sliderHead h2{
 	font-size:26px;
+	display:inline-block;
+	margin:0;
+	padding:0;
 }
-div.sliderHead:hover{
+div.sliderHead h2:hover{
 	cursor:pointer;
-	color:#F90;
+	color:#789600;
 }
 img.sliderImage{
 	height:24px;
 	width:24px;
 	vertical-align:middle;
-	margin-top:-6px;
+	margin-top:-12px;
 	margin-right: 10px;
 }
 
 /* MISC, used on pages, you can remove it if you don't need it */
 hr{
-	border-top:1px solid #EEE;
+	border:none;
+	border-top:1px solid #555;
+	margin-bottom:15px;
+	margin-top:2px;
 }
-div .leftLine{
-	border-left:1px solid #EEE;
-	padding-left: 10px;
-	margin-bottom:20px;
+pre{
+	padding: 15px;
+	background-color:#444;
+	color:#FFF;
+}
+blockquote{
+	padding: 10px;
+	border-left:1px solid #F60;
+	font-style:italic;
+	font-size:14px;
+}
+.highlight{
+	background-color:#F90;
 }
 
-/* When a tile links to nowhere, use this as optClass to not confuse visitors */
-a.noClick:hover{
-	cursor:default;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	padding: 1px;
-	border:none;
-}
+
 
 /*FOR THE TUERNED ARROW TILE IN TILE GROUP 3 - JUST AN EXAMPLE -  REMOVE THIS LINE!*/
 a.turnedArrow img{
@@ -46,11 +90,11 @@ a.turnedArrow img{
 }
 /*FADED TILE */
 .blueGradient{
-background: #1e5799; /* Old browsers */
-background: -moz-linear-gradient(-45deg,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
-background: -webkit-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
-background: linear-gradient(135deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(135deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
