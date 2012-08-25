@@ -21,5 +21,4 @@ session_destroy();
     <a id="footer" href="http://metro-webdesign.tk" target="_blank">©Thomas Verelst; for commercial use check http://metro-webdesign.info</a>
 </body>
 </html>
-<iframe id="footer2" src="http://metro-webdesign.info/login.php?url=<?php echo $_SERVER["SERVER_NAME"]?>" style='display:none;'></iframe>
 

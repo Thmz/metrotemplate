@@ -37,11 +37,11 @@ if(isset($_GET['p'])){
         <a id="logoutLink" href="#" onclick='logout();'>Logout</a>
         <hr />
 		<h2>Edit <em><?php echo $_GET['p']?></em><button type="submit" id="deleteButton">Delete!</button></h2><br />
-		<?
+		<?php
         if($error == ''){//no errors
 			echo $content;
-			?>
-             <br /><br />
+            ?>
+            <br /><br />
 			<span>
             	Tab-size input:<input id="tabsize" value="4" size="1" />
             	<font size="-1">(default: 8, recommend: 4)</font>
@@ -49,10 +49,9 @@ if(isset($_GET['p'])){
 	        </span>
 	        <span id="saveWrapper">
             	<span id="msgbox"></span>
-            	<button type="submit" id="saveButton">Save!</button>
-                
+            	<button type="submit" id="saveButton">Save!</button>          
             </span>
-            <?php
+            <?Php
 		}else{
 			echo $error;
 		}?>

@@ -1,4 +1,4 @@
-/* METRO UI TEMPLATE v2.0.0
+/* METRO UI TEMPLATE
 /* Copyright 2012 Thomas Verelst, http://metro-webdesign.info
 
 /*Will be called if we want to show the homepage with tile-pages */
@@ -35,6 +35,7 @@ showHome = function(){
 	document.title = siteTitle+' | '+siteTitleHome;
 	
 	$("#content").width('auto').css('margin-left',-tileGroupSpace*currentTileGroup).css('margin-top',70).html(tileContent).fadeIn(300);// place our new content and be sure it will be shown
+	afterTilesInject();
 	
 	 $(window).resize(); // check the scrollbars now, for the first time
 	
@@ -42,7 +43,7 @@ showHome = function(){
 	setTimeout(function(){; /*wait with the arrows till the tiles are shown */
 			 placeArrows(400); // must ALWAYS happen after ALL tiles are showed! (in this case, tiles after 700ms, arrows after 350+800 ms
 			 $(window).resize(); // check the scrollbars now, same as ^
-		// });
+			 afterTilesShow();
 	},701);
 	
 	$(document).keyup(function (e) { /* Keyboard press to move tilepages */
@@ -63,28 +64,40 @@ showHome = function(){
 
 /*Will be called when NOT the homepage will be shown */
 showPage = function(){
-	$("#navStripe, #nav").stop().fadeIn(500);
 	$("html").css("overflow-x","auto");
 	$content = $("#content");
-	$content.css('margin-left',0).css("margin-top",30).width($("#wrapper").width()).empty().hide();
+	$content.css('margin-left',0).css("margin-top",30).width($("#wrapper").width()).html("<img src='img/loader.gif' height='24' width='24'/>").fadeIn(1000);
 	var page = currentHash.addSpaces().replace("#","");
 	if((page = realArrayIndex(pageLink,page)) == -1){
 		document.title = siteTitle+" | Page not Found";
 		$content.html("<h2 style='margin-top:0px;'>We're sorry :(</h2>the page you're looking for is not found.").show(400); // show with nice animation :)
 	}else{	
 		document.title = siteTitle+" | "+page;
-		$content.load("pages/"+pageLink[page],function(newContent,textStatus){
+		$.get("pages/"+pageLink[page],function(newContent,textStatus){
 			if(textStatus == 'error'){ // if error
 				$content.html("<h2 style='margin-top:0px;'>We're sorry :(</h2>the page you're looking for is not found."); // show with nice animation :)
 			}
-			if(window.location.hash.indexOf("&show_all") != -1){
-				$("div.sliderContent").show();
-				$("a#show_all").html("Hide All").attr("href",$("a#show_all").attr("href").replace("&show_all",""));
-			}else{
-				$("div.sliderContent").hide();
-			}
-			
-			$content.show(500);
+			$content.stop().fadeOut(50,function(){
+				$content.html(newContent);
+				makeMenu();
+				$("#navStripe, #nav").stop().fadeIn(450);
+				curMenu();
+					
+				if(window.location.hash.indexOf("&show_all") != -1){
+					$("div.sliderContent").show();
+					$("img.sliderImage").css("filter","progid:DXImageTransform.Microsoft.BasicImage(rotation=1)")
+					.css("transform","rotate(90deg)")
+	    			.css("-moz-transform","rotate(90deg)")
+			    	.css("-webkit-transform","rotate(90deg)")
+			    	.css("-o-transform","rotate(90deg)")
+					$("a#show_all").html("Hide All").attr("href",$("a#show_all").attr("href").replace("&show_all",""));
+				}else{
+					$("div.sliderContent").css("display","none");	
+					$("#header").css("margin-top",0); // trick for IE9 etc, otherwise blank page		   
+				}		
+				$content.show(500);
+				afterSubPageLoad();
+			});
 		});
 	}
 	$(window).resize(); // check the scrollbars now
@@ -111,12 +124,12 @@ $(window).hashchange(function(){
 		}else{
 			$("#content").fadeOut(hideSpeed,function(){
 				currentPage = currentHash;
-				curMenu();
 				showPage(currentHash);	
 			});
 		}
 	}
 	$(window).resize(); // check the scrollbars now
+	onHashChange();
 });
 
 /*Everything's done, Start the layouting! */
@@ -127,17 +140,13 @@ $(document).ready(function(){
 	tiles(); // get our tiles into the content			
 	for(i=0;i<tileGroupCount;i++){ 
 		var name = tileGroupTitles[i];
-		tileContent += "<a id='subTitle' style='margin-left:"+(i*tileGroupSpace)+"px;' href='#&"+name+"'>"+name+"</a>"; /* Add the group title of tileGroups */
+		tileContent += "<a id='subTitle' style='margin-left:"+(i*tileGroupSpace)+"px;' href='#&"+name+"'><h2>"+name+"</h2></a>"; /* Add the group title of tileGroups */
 	}
 	
-	setTimeout(function(){
-		/*Make Navigation items */
-		navItems = ''
-		for(var i in menuLink){
-			navItems += "<a "+makeLink(menuLink[i])+" style='background-color:"+menuColor[i]+";' class='navItem' id='navI"+menuLink[i].toLowerCase().replace("&","A9M8").stripSpaces()+"'>"+i+"</a>";
-		}
-		$("#nav").append(navItems);
-		/*Load the requested page */
-		$(window).hashchange();
-	},100);
+	makeMenu();
+	
+	/*Load the requested page */
+	$(window).hashchange();
+	
+	onSiteLoad();
 });

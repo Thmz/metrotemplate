@@ -59,6 +59,19 @@ function drawLinks($pages,$valid_ext){
     <?php
 	$directory = "../";
 	drawLinks(glob($directory . "*.*"),$valid_ext);
+	?><br />   
+    <?php
+	if(file_exists("../mobi/js/tiles-mob.js")){
+		?>
+	    <h3>Mobile plugin</h3>
+	    <?php
+		$directory = "../mobi/";
+		drawLinks(glob($directory . "*.*"),$valid_ext);
+		$directory = "../mobi/js/";
+		drawLinks(glob($directory . "*.*"),$valid_ext);
+		$directory = "../mobi/css/";
+		drawLinks(glob($directory . "*.*"),$valid_ext);
+	}
 	?><br />
     <h3>Path</h3>
     <form id="goPathForm"><input id="goPathLink" size="50" /><button type="submit" id="goPathSubmit">Open</button></form>

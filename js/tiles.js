@@ -65,6 +65,7 @@ tileTitleTextImage = function(group,x,y,width,height,bg,linkPage,title,text,img,
 	</a>");
 }
 tileLive = function(group,x,y,width,height,bg,linkPage,title,img,imgSize,imgToTop,imgToLeft,speed,text1,text2,text3,text4,text5,optClass){
+	var id= "livetile_"+(group+''+x+''+y).replace(/\./g,'_')
 	if(img!=''){
 		imgInsert = "<img style='float:left; margin-top:"+imgToTop+"px;margin-left:"+imgToLeft+"px;' src='"+img+"' height="+imgSize+" width="+imgSize+"/>"
 	}else{
@@ -79,9 +80,9 @@ tileLive = function(group,x,y,width,height,bg,linkPage,title,img,imgSize,imgToTo
 	background:"+bg+";'>\
 	"+imgInsert+"\
 	<div id='title' style='margin-left:"+(imgSize+5+imgToLeft)+"px;'>"+title+"</div>\
-	<div class='livetile' style='margin-left:"+(imgSize+10+imgToLeft)+"px;' id='livetile"+group+''+x+''+y+"' >"+text1+"</div>\
+	<div class='livetile' style='margin-left:"+(imgSize+10+imgToLeft)+"px;' id='"+id+"' >"+text1+"</div>\
 	</a>");
-	setTimeout(function(){newLiveTile(("livetile"+group+''+x+''+y),group,new Array(text1,text2,text3,text4,text5),speed,0)},1500); // init this tile
+	setTimeout(function(){newLiveTile(id,group,new Array(text1,text2,text3,text4,text5),speed,0)},1500); // init this tile
 }
 tileImageSlider = function(group,x,y,width,height,bg,linkPage,img,imgsize, text,slideDistance,optClass){
 	tileContent += ("<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+" tileImageSlider' id='"+slideDistance+" ' style=' \
@@ -90,7 +91,7 @@ tileImageSlider = function(group,x,y,width,height,bg,linkPage,img,imgsize, text,
 	background:"+bg+"'>\
 	<div class='tileSliderWrapper' style='position:absolute;'>\
 	<div style='width: "+(width*scaleSpace-tileSpace)+"px; height:"+(height*scaleSpace-tileSpace)+"px;'>\
-	<img src='"+img+"' height="+imgsize+" width="+imgsize+" style='margin-left: "+((scale-imgsize)*0.5)+"px; margin-top: "+((scale-imgsize)*0.5)+"px'/>\
+	<img src='"+img+"' height="+imgsize+" width="+imgsize+" style='margin-left: "+((width*scaleSpace-imgsize-tileSpace)*0.5)+"px; margin-top: "+((height*scaleSpace-imgsize-tileSpace)*0.5)+"px'/>\
 	</div>\
 	<div id='tileSliderText'>"+text+"</div>\
 	</div>\
@@ -103,19 +104,20 @@ tileImageSlider = function(group,x,y,width,height,bg,linkPage,img,imgsize, text,
 	});
 }
 tileSlideshow = function(group,x,y,width,height,bg,linkPage,title,speed,path1,path2,path3,path4,path5,optClass){
+	var sid="slideshow_"+(group+''+x+''+y).replace(/\./g,'_')
 	tileContent += (
 	"<a "+makeLink(linkPage)+" class='tile group"+group+" "+optClass+"' style=' \
 	margin-top:"+y*(scaleSpace)+"px; margin-left:"+(x*scaleSpace+group*tileGroupSpace)+"px; \
 	width: "+(width*(scaleSpace)-tileSpace)+"px; height:"+(height*(scaleSpace)-tileSpace)+"px; \
 	background:"+bg+";'>\
 	<div class='tileSlideshowTitle'>"+title+"</div>\
-	<img class='tileSlideshowImageBack' id='slideshow_"+group+''+x+''+y+"_back' src='"+path1+"'>\
-	<img class='tileSlideshowImage' id='slideshow_"+group+''+x+''+y+"' src='"+path1+"' >\
+	<img class='tileSlideshowImageBack' id='"+sid+"_back' src='"+path1+"'>\
+	<img class='tileSlideshowImage' id='"+sid+"' src='"+path1+"' >\
 	</a>");
 	var images = [path1, path2, path3, path4, path5];
 	setTimeout(function(){
 		$.each(images, function (i, val) {$('<img/>').attr('src', val)})//start prechaching images;
-		newSlideshow(("slideshow_"+group+''+x+''+y),group,images,speed,0)
+		newSlideshow(sid,group,images,speed,1)
 	},2000); // init this tile	
 }
 tileCustom = function(group,x,y,width,height,bg,linkPage,content,optClass){ // make your own tiles

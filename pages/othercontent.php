@@ -1,4 +1,4 @@
-<h1>Test content</h1>
+<h1 style='margin-top:0;'>Test content</h1>
 <p>Blabla</p>
 <div class="leftLine">
 Some content<br />

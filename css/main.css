@@ -10,9 +10,6 @@ html{
 	color: #FFF;
 	overflow-y:scroll;
 }
-body{
-	position:relative;
-}
 a{
 	color:#FFF;
 	text-decoration:underline;
@@ -58,7 +55,7 @@ button:hover{
 /*LAYOUT PARTS*/
 #wrapper{
 	max-width: 1000px;
-	min-width: 800px;
+	min-width: 850px;
 	padding: 0 50px;;
 	margin:30px auto; /* auto margin to center horizontally, 50px for bottom and top margin */
 	z-index:-99;
@@ -122,6 +119,11 @@ button:hover{
 	font-weight:lighter;
 	position:absolute;
 	margin-top:-45px; /*Dirty way to place it above the tiles */
+}
+#subTitle h2{
+	margin:0;
+	font-weight:inherit;
+	font-size:inherit;
 }
 #nav{
 	display:none;

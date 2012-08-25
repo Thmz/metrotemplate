@@ -34,7 +34,7 @@ $(document).on("click","#rightArrow",function(){
 	goToRight();
 })
 
-/* Place the arrows on the right place */
+/* Place the arrows on the right place*/
 placeArrows = function(fade){
 	$("#leftArrow,#rightArrow").hide();
 	var mostRight = -999;
@@ -111,7 +111,7 @@ $(window).resize(function(){
 				 }
 			}
 			event.preventDefault();
-		});		
+		});
 	}
 });
 
@@ -122,14 +122,17 @@ $(document).on("click","a",function(){
 	};
 });
 
-/*Trick to place the header horizontally fixed and vertically absolute */
-$(window).scroll(function() {
-	if(scrolling == false){
-    	$('#header').css('margin-top', -$(document).scrollTop()); 
+/* Generates the menu, makes Navigation items */
+makeMenu = function(){
+	navItems = '';
+	for(var i in menuLink){
+		navItems += "<a "+makeLink(menuLink[i])+" style='background-color:"+menuColor[i]+";' class='navItem' id='navI"+menuLink[i].toLowerCase().replace("&","A9M8").stripSpaces()+"'>"+i+"</a>";
 	}
-});
+	$("#nav").html("").append(navItems);
+}
 
-curMenu = function(){ // highlights current menu
+/* highlights current menu */
+curMenu = function(){
 	$(".navItem").removeClass("navItemActive")
 	$("#navI"+hash.toLowerCase().replace("&","A9M8").stripSpaces()).addClass("navItemActive");
 }
@@ -140,6 +143,12 @@ makeLink = function(lp){
 	if(lp.substr(0,9) == 'external:'){
 		t="target='_blank' ";
 		lp = lp.substr(9);
+	}
+	if(lp.substr(0,9) == 'gotolink:'){
+		return t+"href='"+lp.substr(9)+"'";
+	}
+	if(lp==""){
+		return '';
 	}
 	if(lp.substr(0,7) == "http://" ||
 	   lp.substr(0,8) == "https://" ||

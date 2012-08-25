@@ -11,7 +11,7 @@ $siteKeywords = 'site, blabla, blablabla'; //keywords of your site,max 10 keywor
 $pageLink = array();
 $pageLink['A new page'] = 'mypage.php';
 $pageLink['Testing slides'] = 'testslides.html';
-$pageLink['Other content'] = 'othercontent.php';
+$pageLink['Other content to test'] = 'othercontent.php';
 
 
 /*BACKGROUND OPTIONS*/

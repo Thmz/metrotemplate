@@ -15,8 +15,11 @@ $(document).ready(function(){
 		{content:$("#editText").val(),file:file},
 		function(data){
 			if(data=='yes') {
+				var currentTime = new Date()
+				var hour = currentTime.getHours()
+				var minute = currentTime.getMinutes()
 	           	$("#msgbox").fadeTo(300,0.1,function(){
-	               	$(this).html('Saved!').addClass('messageboxok').fadeTo(900,1);
+	               	$(this).html('Saved @ '+hour+':'+minute).addClass('messageboxok').fadeTo(900,1);
 	           	});
 	       	}else{
 	            $("#msgbox").fadeTo(300,0.1,function(){

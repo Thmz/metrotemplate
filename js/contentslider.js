@@ -7,11 +7,14 @@ $(document).ready(function(){
 			$content = $this.find(".sliderContent")
 			$img = $this.find(".sliderImage");
 			if($this.attr("id")=='closeOther'){
-				$(".sliderContent").slideUp(500)
+				$(".sliderContent").slideUp(500);
+				$(".sliderImage").css("filter","progid:DXImageTransform.Microsoft.BasicImage(rotation=0)");
 				turn(".sliderImage",0);
 			}
 			if($content.css("display")=='none'){
-				$content.slideDown(500);
+				$content.slideDown(500,function(){  
+                   $("html, body").animate({scrollTop:$this.offset().top},200);
+                });
 				r=0;
 				turnImageDown();
 			}else{

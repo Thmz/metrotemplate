@@ -99,11 +99,11 @@ a:active, a:selected, a:visited, a:focus {
 .messageboxok{
 	width:auto;
 	margin-left:15px;
-	border:1px solid #78a800;
+	border:1px solid #608600;
 	background:#DDD;
 	padding:3px;
 	font-weight:bold;
-	color:#78a800;
+	color:#608600;
 	margin-top: 2px;
 }
 .messageboxerror{

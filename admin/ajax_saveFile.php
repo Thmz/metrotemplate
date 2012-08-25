@@ -6,7 +6,12 @@ if($_SESSION['login']!=$adminLogin){
 }
 if(isset($_POST['file']) && isset($_POST['content'])){
 	$handle = fopen($_POST['file'], "w") or die("Can't open file. Changes not saved!");
-	$content=stripslashes($_POST['content']);  
+	if(get_magic_quotes_gpc()==1){
+		$content=stripslashes($_POST['content']);
+	}else{
+		$content=($_POST['content']);
+	}
+ 
 	fwrite($handle, $content) or die("Can't write file. Changes not saved!");
 	echo "yes";
 }else{
