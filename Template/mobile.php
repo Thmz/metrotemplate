@@ -28,10 +28,12 @@ $iecss='themes/'.$theme.'/theme_mobile_ie.php';
 require_once("mobi/compress.php");
 
 /* FOR NO-JAVASCRIPT PEOPLE */
+$doLoad = true;
+if(isset($_GET['p'])){
+	$doLoad = false;
+	$page = 'pages/'.str_replace ('/','',str_replace ('..','',$_GET['p']));
+}
 if($enableNoJavascript){
-	if(isset($_GET['p'])){
-		$page = 'pages/'.str_replace ('/','',str_replace ('..','',$_GET['p']));
-	}
 	if(!file_exists("cache/no-js-mob.txt")){
 		$createNoJS = 'true';
 	}else{
@@ -56,37 +58,44 @@ if($enableNoJavascript){
 	siteTitleHome = "<?php echo $siteTitleHome;?>";
 	createNoJS = "<?php echo $createNoJS;?>";
 	theme = "<?php echo $theme?>";
+	doLoad = "<?php echo $doLoad?>";
 	</script>   
     <script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/inc/jquery181.js"><\/script>')</script>
     <?php echo $js;//include js lines?>
+    <?php echo $plHeadMob;?>
 </head>
 <body>
 <div id="headerWrapper">
 	<div id="header">
 	<h1><a id="siteTitle" href="mobile.php" onClick="javascript:window.location.hash='';$show.prepareHomePage();return false;"><?php echo $siteName?></a></h1>
    	<h2><?php echo $siteDesc;?></h2>
+    <?php echo $plHeaderMob;?>
     </div>
 </div>
 <div id="wrapperMobile">   
     <div id="contentWrapper">
-    <div id="subNavWrapper">
-    	<div id="subNav">
+    	<div id="subNavWrapper">
+	    	<div id="subNav">
+		    </div>
+            <?php echo $plSubNavWrapperMob;?>
+		</div>
+	   	<div id="content">
+			<?php
+			if(isset($page)){
+				include($page);
+			}else if($createNoJS == 'false' && $enableNoJavascript==true){		
+				include("cache/no-js-mob.txt");
+			}
+			?>
 	    </div>
-	</div>
-   	<div id="content">
-		<?php
-		if(isset($page)){
-			include($page);
-		}else if($createNoJS == 'false' && $enableNoJavascript==true){
-			include("cache/no-js-mob.txt");
-		}
-		?>
+	    <div id="footer">
+	    	<?php echo $siteFooter?>
+	    </div>
+        <?php echo $plContentWrapperMob;?>
     </div>
-    <div id="footer">
-    <?php echo $siteFooter?>
-    </div>
-    </div>
+    <?php echo $plWrapperMob;?>
 </div>
+<?php echo $plBodyMob;?>
 </body>
 </html>

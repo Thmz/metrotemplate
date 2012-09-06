@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-/* METRO UI TEMPLATE v3.0.0
+/* METRO UI TEMPLATE v3.0.2
 /* Copyright 2012 Thomas Verelst, http://metro-webdesign.info
 /* Do not redistribute or sell this template, nor claim this is your own work. 
 /* Donation required when using this. */
@@ -43,11 +43,14 @@ require_once("inc/seo.php");
 	</script>    
     <script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/inc/jquery181.js"><\/script>')</script>
-    <?php echo $js;//include js lines?>
+    <?php echo $js;//include js lines?> 
+    <?php echo $plHead;?>  
 </head>
 <body>
 <div id="headerWrapper">
-	<?php include("header.php");echo $plHeader;?>   
+	<?php include("header.php");
+	echo $plHeader;
+	?>   
 </div>
 <div id="wrapper">   
     <div id="contentWrapper">
@@ -80,10 +83,11 @@ require_once("inc/seo.php");
         </div>
         <?php echo $plContentWrapper;?>
 	</div>
-	<a id="footer"><?php /*<-Please leave this link, only donators may remove this!*/
+	<div id="footer"><?php /*<-Please leave this link, only donators may remove this!*/
 	echo $siteFooter;
-	?></a>
-    <?php echo $plBody;?>
-</div>
+	?></div>
+   <?php echo $plWrapper;?>  
+</div> 
+<?php echo $plBody;?>
 </body>
 </html>

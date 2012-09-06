@@ -111,11 +111,13 @@ $.extend($group, {
 		}
 	},
 	bounce: function(s){ //gives a bounce effect when there are no pages anymore, s = side: -1 = left, 1 = right
-		scrolling = true;
-		$('#contentWrapper').stop().animate({'margin-left': "-="+50*s}, 300,'linear')
-						    		.animate({'margin-left':  "+="+50*s}, 300,'linear',function(){	
-			scrolling = false	
-		});	
+		if(scrolling == false && browser!=8){
+			scrolling = true;
+			$('#contentWrapper').stop().animate({'margin-left': "-="+50*s}, 300,'linear')
+							    		.animate({'margin-left':  "+="+50*s}, 300,'linear',function(){	
+				scrolling = false	
+			});	
+		}	
 	}
 });
 /*For responsize webdesign, content fits the screen*/

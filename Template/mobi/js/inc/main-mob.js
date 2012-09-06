@@ -50,8 +50,11 @@ $show={
 		if((page = realArrayIndex(pageLink,hashReq)) != -1){//if the page is in the pagelink array
 			url = pageLink[page];//get the url
 		}else{//else not found
+			page=hashReq
 			url = hashReq.toLowerCase()+".php";//a try
 		}
+		menuLink = new Array(); 
+		menuColor = new Array();
 		$.ajax("pages/"+url).success(function(newContent,textStatus){
 			$content.stop().fadeOut(50,function(){
 				$content.html(newContent);					
@@ -76,8 +79,7 @@ $show={
 				$events.afterSubPageLoad();
 			});
 		}).error(function(){
-			page = "Page not Found";
-			document.title = page+" | "+siteTitle;
+			document.title = siteTitle+" | 404 - Page not Found" ;
 			$content.html("<h2 style='margin-top:0px;'>We're sorry :(</h2>the page you're looking for is not found.").show(400);
 		})	
 		$(window).resize();
@@ -132,8 +134,9 @@ $(document).ready(function(){
 	}
 	
 	/*Load the requested page */
-	$(window).hashchange();	
-	
+	if(doLoad){
+		$(window).hashchange();	
+	}
 	setCookie("desktop",0);
 	$events.onSiteLoad();
 });

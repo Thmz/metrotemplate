@@ -34,18 +34,18 @@
 }
 
 /*LABELS */
-div.tileLabelWrapper{
+.tileLabelWrapper{
 	position:absolute;
 	right:0;
 	z-index:11;
 }
-div.tileLabel{
+.tileLabel{
 	display:inline-block;
 	font-size:14px;	
 	text-decoration: none;  
     color: #FFF; 
 }
-div.tileLabelDesc{
+.tileLabelDesc{
 	border-top:1px solid #999;
 	background-color:rgb(140,140,140);
 	background-color:rgba(55,55,55,0.6);
@@ -54,15 +54,15 @@ div.tileLabelDesc{
 	padding:3px;
 	font-size:12px;
 }
-div.showOnHover{
+.showOnHover{
 	display:none;
 }
 /*BOTTOM LABEL */
-div.tileLabelWrapper.bottom{
+.tileLabelWrapper.bottom{
 	bottom:0;
 	left:0;	
 }
-div.tileLabel.bottom{	
+.tileLabel.bottom{	
 	padding: 2px 2px 1px 2px;  
     border-right: 15px solid transparent;  
     border-bottom: 20px solid #777;    
@@ -70,14 +70,14 @@ div.tileLabel.bottom{
     line-height: 22px;  
 }
 /* TOP LABEL */
-div.tileLabelWrapper.top{
+.tileLabelWrapper.top{
 	top:0;
 	border-left: 15px solid transparent;  
     border-top: 20px solid #777;
 	height: 0;
 	z-index:15;
 }
-div.tileLabel.top{
+.tileLabel.top{
 	position:relative;
 	padding: 0px 2px 2px 2px;  
 	margin-top:-20px;  	 
@@ -96,16 +96,16 @@ div.tileLabel.top{
 	position:absolute;	
 }
 /* tileImg*/
-a.tileImg:hover div.tileLabelWrapper.bottom{
+.tileImg:hover .tileLabelWrapper.bottom{
 	bottom:0;
 	right:0;
 	left:0;
 }
-a.tileImg:hover div.tileLabelWrapper.top{
+.tileImg:hover .tileLabelWrapper.top{
 	margin-right:-1px;
 	margin-top:-1px;
 }
-a.tileImg:hover div.tileLabelDesc{
+.tileImg:hover .tileLabelDesc{
 	color:#FFF;
 }
 /* When a tile links to nowhere, use this as optClass to not confuse visitors */

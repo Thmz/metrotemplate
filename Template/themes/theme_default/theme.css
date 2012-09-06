@@ -107,7 +107,7 @@ h6{
 .weight-normal{font-weight:normal;}
 
 /* NAVIGATION */
-a.navItem{ /* main nav on top */
+.navItem{ /* main nav on top */
 	height:70px;
 	width:95px;
 	background-color:#555;
@@ -117,33 +117,33 @@ a.navItem{ /* main nav on top */
 	border:1px solid #666;
 	text-decoration:none;
 }
-a.navItem:hover{
+.navItem:hover{
 	color:#FFF;
 	background-color:#888;
 }
-a.navItem img{
+.navItem img{
 	margin:10px 10px 3px 10px;
 	height:32px;
 }
-a.navActive{
+.navActive{
 	background-color:#F90;
 	-moz-box-shadow: 0 0 2px #fff;
 	-webkit-box-shadow: 0 0 2px #fff;
 	box-shadow: 0 0 2px #fff;
 }
-a.navActive:hover{
+.navActive:hover{
 	background-color:#F60;
 }
 
 /* Subnav, on each page */
-div#subNav a{	
+#subNav a{	
 	font-size:14px;
 	color:#FFF;
 }
-div#subNav a:hover{
+#subNav a:hover{
 	color:#FFF;
 }
-a.subNavItemActive{
+.subNavItemActive{
 	padding: 3px 7px 2px 7px !important;
 	border:1px #FFF solid;
 	border-top: none;
@@ -335,35 +335,35 @@ dl.separator dt:first-child:after { display: none; }
 	border-bottom:1px #999 solid;	
 	/*box-shadow:0 0 5px #555;*/
 }
-div#header h1 a{/*the big header text */
+#header h1 a{/*the big header text */
 	color:#FFF;
 	font-size:46px;
 	text-decoration:none;
 }
-div#header h1 a:hover{
+#header h1 a:hover{
 	color:#F90;
 }
-div#header h2{/*the smaller title */
+#header h2{/*the smaller title */
 	font-size:16px;
 	color:#CCC;
 }
-a.groupTitle h3{ /* The tilegroup title on the homepage*/
+.groupTitle h3{ /* The tilegroup title on the homepage*/
 	font-size: 24px;
 }
-a.groupTitle h3:hover{ /* The tilegroup title on the homepage*/
+.groupTitle h3:hover{ /* The tilegroup title on the homepage*/
 	color:#F60;
 }
-div#content{ /* the content */
+#content{ /* the content */
 	color:#111;
 }
-div.pageContent{ /*Loaded when a subpage is shown */
+.pageContent{ /*Loaded when a subpage is shown */
 	background: rgb(212, 212, 212); /* default fallback */
 	background: rgba(180, 180, 180, 0.2); /* nice browsers */
 	box-shadow: 0 0 7px #777;
 	-moz-box-shadow: 0 0 7px #777;
 	-webkit-box-shadow: 0 0 7px #777;
 }
-a#footer{
+#footer{
 	color:#222;
 	font-size:10px;
 	background-color:#CCC;

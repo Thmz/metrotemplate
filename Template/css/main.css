@@ -15,34 +15,34 @@ body{
 	padding:0;
 }
 /*LAYOUT PARTS*/
-div#wrapper{
+#wrapper{
 	margin:0 0 0 20px;
 	overflow:hidden;
 }
-div#headerWrapper{
+#headerWrapper{
 	padding: 5px 0 7px 0;
 	z-index:2;
 	overflow:hidden;
 }
-div#header{
+#header{
 	max-width:900px;/* MAX WIDTH OF PAGE*/
 	padding-left:15px;
 	margin: 0 auto;
 	overflow:hidden;
 }
-div#headerTitles{
+#headerTitles{
 	float:left;
 	display:inline-block;
 }
-div#header h1{
+#header h1{
 	margin-top:0;
 	margin-bottom:0;
 }
-div#header h2{
+#header h2{
 	margin: 0 0 0 3px;
 	z-index:12;
 }
-div#contentWrapper{
+#contentWrapper{
 	max-width: 900px; /* MAX WIDTH OF PAGE*/
 	min-width: 400px;
 	min-height:400px;
@@ -53,8 +53,7 @@ div#contentWrapper{
 div.pageContent{
 	height:auto !important;
 }
-div#content{
-	
+#content{	
 	-webkit-transition:margin-left 600ms;
 	-moz-transition:margin-left 600ms;
 	-o-transition:margin-left 600ms;
@@ -63,7 +62,7 @@ div#content{
 	z-index:4;
 	font-weight:normal;
 }
-a#footer{ /*show a little footer in the rightdown corner*/
+#footer{ /*show a little footer in the rightdown corner*/
 	position:fixed;
 	bottom:0;
 	right:0;
@@ -72,7 +71,7 @@ a#footer{ /*show a little footer in the rightdown corner*/
 	text-decoration:none;
 	z-index:50; /* draw it on top of everything */
 }
-a#footer:hover{
+#footer:hover{
 	cursor:default;
 }
 img#arrowLeft,img#arrowRight{
@@ -87,16 +86,16 @@ img#arrowLeft:hover,img#arrowRight:hover{
 	cursor:pointer;
 }
 /* General Navigation */
-a#siteTitle{ /*the siteName */
+#siteTitle{ /*the siteName */
 	text-decoration:none;
 	font-weight:lighter;
 	z-index:12;
 }
-a.groupTitle{ /*the title of the tilegroups*/	
+.groupTitle{ /*the title of the tilegroups*/	
 	position:absolute;
 	text-decoration:none;
 }
-a.groupTitle h3{
+.groupTitle h3{
 	margin:0;
 	font-weight:lighter;
 }

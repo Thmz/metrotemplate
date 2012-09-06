@@ -2,8 +2,10 @@
 /* PLUGIN SYSTEM */
 $jsPluginsArray = array("js/inc/plugins.js");
 $cssPluginsArray = array();
+$plHead = '';
 $plHeader = '';
 $plBody = '';
+$plWrapper = '';
 $plContentWrapper = '';
 $plSubNavWrapper ='';
 $plNav = '';

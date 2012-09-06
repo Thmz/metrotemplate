@@ -110,8 +110,7 @@ $show = {
 		}
 		menuLink = new Array(); 
 		menuColor = new Array();
-		$.ajax("pages/"+url).success(function(newContent,textStatus){
-			
+		$.ajax("pages/"+url).success(function(newContent,textStatus){			
 			$content.stop().fadeOut(50,function(){
 				$content.html(newContent);					
 				if(window.location.hash.indexOf("&show_all") == -1){

@@ -1,6 +1,6 @@
 $.plugin($afterTilesAppend,{
 	tileHoverEffectFold:function(){
-		if(browser>9 && !$.browser.opera && !mobile){ // if notIE
+		if(browser>10 && !$.browser.opera && !mobile){ // if notIE
 		$(".tileHoverEffectFold").each( function() {
           		var $item 	= $( this ),
 					img		= $item.children( 'img' ).attr( 'src' ),
@@ -23,7 +23,7 @@ $.plugin($afterTilesAppend,{
 });
 $.plugin($onSiteLoad,{
 	tileHoverEffectFold:function(){
-		if(browser>9 && !$.browser.opera && !mobile){ // if notIE
+		if(browser>10 && !$.browser.opera && !mobile){ // if notIE
 			$(document).on("mouseenter",".tileHoverEffectFold",function(){
 				$item = $(this)
 				$item.addClass("tileHoverEffectFoldHover");

@@ -1,6 +1,6 @@
 if(browser<11 || $.browser.opera){
 	$(document).on("mouseenter",".tileFlip",function(){
-		$(this).find(".flipFront, .tileLabelWrapper").stop().fadeOut(500);
+		$(this).removeClass("support3D").find(".flipFront, .tileLabelWrapper").stop().fadeOut(500);
 	}).on("mouseleave",".tileFlip",function(){
 		$(this).find(".flipFront, .tileLabelWrapper").fadeIn(500);
 	})
@@ -24,7 +24,7 @@ tileFlip = function(group,x,y,width,height,bg,linkPage,img,content,labelSettings
 		var labelTotal = '';
 	}
 	$page.content += (
-	"<a "+makeLink(linkPage)+" class='tileFlip tile group"+group+" "+optClass+"' style=' \
+	"<a "+makeLink(linkPage)+" class='tileFlip support3D tile group"+group+" "+optClass+"' style=' \
 	margin-top:"+((y*$tile.scalespacing)+45)+"px;margin-left:"+(x*$tile.scalespacing+group*$group.spacing)+"px; \
 	width: "+(width*$tile.scalespacing-$tile.spacing)+"px; height:"+(height*$tile.scalespacing-$tile.spacing)+"px;'>\
 	<div class='flipContainer' style='border:1px solid "+bg+";'>\
