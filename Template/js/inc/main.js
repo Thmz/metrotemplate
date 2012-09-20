@@ -125,12 +125,14 @@ $show = {
 				   	.css("-o-transform","rotate(90deg)")
 					.css("-ms-transform","rotate(90deg)")
 				}
-				$content.show($page.showSpeed);
+				$content.show($page.showSpeed,function(){
+					$events.afterSubPageLoad();
+				});
 				$subNav.make();
 				$("#subNav").stop().fadeIn($page.showSpeed);
 				document.title = page+" | "+siteTitle;
 				$(window).resize();
-				$events.afterSubPageLoad();
+				$events.onSubPageLoad();
 				
 			});
 		}).error(function(){
@@ -177,9 +179,11 @@ $(window).hashchange(function(){
 /*Everything's done, Start the layouting! */
 $(document).ready(function(){
 	$events.beforeSiteLoad();
-	if(enableMobile){
-		checkMobile();
+	
+	if(mobileDevice){
+		$("body").append("<a href='mobile.php' id='goToMobile'>Mobile Version</a>");	
 	}
+	
 	/*Create the tile content */ 
 	$page.content = "<img id='arrowLeft' src='themes/"+theme+"/img/arrows/arrowLeft.png'/><img id='arrowRight' src='themes/"+theme+"/img/arrows/arrowRight.png'/>";
 	tiles(); // get our tiles into the content			
@@ -192,21 +196,3 @@ $(document).ready(function(){
 	
 	$events.onSiteLoad();
 });
-
-function getCookie(c_name){var i,x,y,ARRcookies=document.cookie.split(";");for (i=0;i<ARRcookies.length;i++){x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);x=x.replace(/^\s+|\s+$/g,"");if (x==c_name){return unescape(y);}}}
-
-checkMobile = function(){
-	var desktop =  getCookie('desktop'); // check if a cookie with a config is set, if the value = 1, the user wants to force the page to stay at the desktop version			
-	var userAgent = navigator.userAgent.toLowerCase();
-	var mobile = (/iphone|ipod|android|blackberry|mini|iemobile|windows\sce|palm/i.test(userAgent));
-	if (mobile) { // GOT A MOBILE DEVICE    
-		 if(desktop=='1'){
-			$("body").append("<a href='mobile.php' id='goToMobile'>Mobile Version</a>");	
-		}else if ((userAgent.search("android") > -1) && (!(userAgent.search("mobile") > -1)&&!(userAgent.search("opera mobi") > -1)&&!(userAgent.search("mini") > -1))){// TABLET
-			mobile=false;
-		}else{ // PHONE
-			window.location.href="mobile.php"
-			$("#content").html("You will be redirected to the mobile site, please wait.");	
-		}
-	}
-}

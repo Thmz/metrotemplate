@@ -47,6 +47,9 @@ $events = {
 	afterTilesShow:function(){
 		$events.run($afterTilesShow);
 	},
+	onSubPageLoad:function(){
+		$events.run($afterSubPageLoad);
+	},
 	afterSubPageLoad:function(){
 		$events.run($afterSubPageLoad);
 	},
@@ -62,14 +65,15 @@ $events = {
 }
 
 /*EVENT TRIGGERS */
-$init = {} // used to init functions
-$beforeSiteLoad ={}  // Will be called before anything is done
-$afterTilesAppend ={} // Will be called after the tiles are injected into the #content div, you can add code here
-$afterTilesShow = {}// Will be called after the tiles are shown, you can add code here
-$afterSubPageLoad = {} // Will be called after a subpage is loaded, you can add code here
-$onHashChange = {} // Will be called when the hash (so page, or tilegroup) changes 
-$onWindowResize = {} // When the winow is resized
-$onSiteLoad = {} // Will be called when the site is opened for the first time/ when the document is loaded (not when the page changes)
+$init = {}
+$beforeSiteLoad ={} 
+$afterTilesAppend ={}
+$afterTilesShow = {}
+$onSubPageLoad = {}
+$afterSubPageLoad = {}
+$onHashChange = {} 
+$onWindowResize = {} 
+$onSiteLoad = {}
 
 /* LIVETILES */
 newLiveTile = function(id,group,texts,speed,slide){

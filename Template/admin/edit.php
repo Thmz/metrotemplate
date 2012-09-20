@@ -6,12 +6,12 @@ if(!isset($_SESSION['login'])){
 }
 $error = '';
 if(isset($_GET['p'])){
-	if(file_exists($_GET['p'])){
+	if(file_exists($_GET['p']) && trim($_GET['p']) != "../"){
 		if(filesize($_GET['p']) ==0){
 			$content = "<em>The file has no content yet!</em><br> <textarea id='editText' wrap='off'></textarea>";
 		}else{
 			$handle = fopen($_GET['p'], "r+") or die("Can't open file");
-			$content = "<textarea id='editText' wrap='off'>".fread($handle,filesize($_GET['p']))."</textarea>";
+			$content = "<textarea id='editText' wrap='off'>".htmlentities(fread($handle,filesize($_GET['p'])))."</textarea>";
 		}
 	}else{
 		$error = "File not found. Please go to <a href='index.php'>Index</a>";
@@ -38,7 +38,7 @@ if(isset($_GET['p'])){
 <a href="../mobile.php" target='_blank' style='font-size:16px; margin-left:30px;'>Visit mobile site</a></h1><a id="logoutLink" href="#" onclick='logout();'>Logout</a>
 </div></div>
 	<div id="wrapper">
-		<h2>Edit <em><?php echo $_GET['p']?></em><button type="submit" id="deleteButton">Delete!</button></h2><br />
+		<h2>Edit <em><?php echo $_GET['p']?></em><?php if($error == ""){?><button type="submit" id="deleteButton">Delete!</button><?php } ?></h2><br />
 		<?php
         if($error == ''){//no errors
 			echo $content;

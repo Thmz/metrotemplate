@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-/* METRO UI TEMPLATE v3.0.2
+/* METRO UI TEMPLATE v3.0.3.1
 /* Copyright 2012 Thomas Verelst, http://metro-webdesign.info
 /* Do not redistribute or sell this template, nor claim this is your own work. 
 /* Donation required when using this. */
 
 require_once('config.php');
+include_once("inc/detectmobile.php");
 
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
 /* FILES*/
 $cssFiles = array( /* Add your css files to this array */
 	'css/main.css',
@@ -34,15 +37,15 @@ require_once("inc/seo.php");
 	<title><?php echo $siteTitle;?></title> 
     <meta name="viewport" content="width=200, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'><!-- Include a nice font -->
-	<?php echo $css; if(file_exists($iecss)){include($iecss);};//include css lines?>  
+	<?php echo $redirectMobile;echo $css; if(file_exists($iecss)){include($iecss);};//include css lines?>  
     <script>
 	siteTitle = "<?php echo $siteTitle;?>";
 	siteTitleHome = "<?php echo $siteTitleHome;?>";
-	enableMobile = "<?php echo $enableMobileVersion;?>";
+	mobileDevice = "<?php echo $mobileDevice;?>";
 	theme = "<?php echo $theme?>";
 	</script>    
-    <script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/inc/jquery181.js"><\/script>')</script>
+    <script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/inc/jquery182.js"><\/script>')</script>
     <?php echo $js;//include js lines?> 
     <?php echo $plHead;?>  
 </head>
@@ -83,9 +86,7 @@ require_once("inc/seo.php");
         </div>
         <?php echo $plContentWrapper;?>
 	</div>
-	<div id="footer"><?php /*<-Please leave this link, only donators may remove this!*/
-	echo $siteFooter;
-	?></div>
+	<div id="footer"><?php echo $siteFooter;?></div>
    <?php echo $plWrapper;?>  
 </div> 
 <?php echo $plBody;?>

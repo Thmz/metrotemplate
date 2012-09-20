@@ -3,12 +3,12 @@
 $jsPluginsArray = array("js/inc/plugins.js");
 $cssPluginsArray = array();
 
-$plHeadMob = '';
-$plHeaderMob = '';
-$plBodyMob = '';
-$plWrapperMob = '';
-$plContentWrapperMob = '';
-$plSubNavWrapperMob ='';
+$plHead = '';
+$plHeader = '';
+$plBody = '';
+$plWrapper = '';
+$plContentWrapper = '';
+$plSubNavWrapper ='';
 
 $folders = glob("plugins/" . "*");
 foreach($folders as $folder){

@@ -86,12 +86,12 @@ Zebra tables, check source
 </table>
 
 <h3>Boxes</h3>
-<div class="box-content"><code>box-content</code></div>
-<div class="box-note"> <code>box-note</code></div>
-<div class="box-hint"><code>box-hint</code></div>
-<div class="box-info"><code>box-info</code></div>
-<div class="box-download"> <code>box-download</code></div>
-<div class="box-warning"><code>box-warning</code></div>
+<div class="box-content">box-content</div>
+<div class="box-note">box-note</div>
+<div class="box-hint">box-hint</div>
+<div class="box-info">box-info</div>
+<div class="box-download">box-download</div>
+<div class="box-warning">box-warning</div>
 
 <h3>Forms</h3>
 <form>

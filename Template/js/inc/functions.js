@@ -111,10 +111,10 @@ $.extend($group, {
 		}
 	},
 	bounce: function(s){ //gives a bounce effect when there are no pages anymore, s = side: -1 = left, 1 = right
-		if(scrolling == false && browser!=8){
+		if(scrolling == false){	
 			scrolling = true;
-			$('#contentWrapper').stop().animate({'margin-left': "-="+50*s}, 300,'linear')
-							    		.animate({'margin-left':  "+="+50*s}, 300,'linear',function(){	
+			$('#wrapper').stop().animate({'margin-left': "-="+40*s}, 150)
+							    .animate({'margin-left':  0}, 150,function(){	
 				scrolling = false	
 			});	
 		}	

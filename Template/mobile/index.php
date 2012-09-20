@@ -1,3 +1,6 @@
+<?php
+header("Location: ../mobile.php");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,7 +22,7 @@ body{
 }
 </style>
 </head>
-<body style="">
+<body>
 <div style="margin:50px auto;width:300px;">
 <a id="link" href="../mobile.php" style=""><span style="font-size:30px;">You are being redirected</span><br>click here</a></div>
 </body>

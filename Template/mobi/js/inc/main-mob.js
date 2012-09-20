@@ -43,7 +43,7 @@ $show={
 	},	
 	/*Will be called when NOT the homepage will be shown */
 	page : function(){
-		$("body").scrollTop(0);
+		$("html,body").scrollTop(0);
 		$content = $("div#content");
 		$content.html("<img src='themes/"+theme+"/img/loader.gif' height='24' width='24'/>").fadeIn(1000);;
 		var page, hashReq = $hashed.current.addSpaces()
@@ -71,12 +71,14 @@ $show={
 					.css("-ms-transform","rotate(90deg)")
 				}
 				
-				$content.fadeIn(500);
+				$content.fadeIn(450,function(){
+					$events.afterSubPageLoad();
+				});
 				$subNav.make();
 				$("#subNav,#footer").stop().fadeIn(450);
 				document.title = page+" | "+siteTitle;
 				$(window).resize();
-				$events.afterSubPageLoad();
+				$events.onSubPageLoad();
 			});
 		}).error(function(){
 			document.title = siteTitle+" | 404 - Page not Found" ;

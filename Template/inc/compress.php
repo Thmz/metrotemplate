@@ -2,6 +2,7 @@
 /* PLUGIN SYSTEM */
 $jsPluginsArray = array("js/inc/plugins.js");
 $cssPluginsArray = array();
+
 $plHead = '';
 $plHeader = '';
 $plBody = '';
@@ -9,6 +10,7 @@ $plWrapper = '';
 $plContentWrapper = '';
 $plSubNavWrapper ='';
 $plNav = '';
+
 $folders = glob("plugins/" . "*");
 foreach($folders as $folder){
 	if(is_dir($folder)){

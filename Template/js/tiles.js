@@ -2,11 +2,11 @@
 tiles = function(){ /*Insert your own tiles here*/
 
 	/* READ THE TUTORIAL AT METRO-WEBDESIGN.INFO */
-	tileTitleText(0,0,0,2,1,'#789600','external:http://metro-webdesign.info','Welcome','Thanks for downloading the template.<p> Please read the tutorial at <br> <strong>http://metro-webdesign.info</strong> when you start!',['','',''],'');
+	tileTitleText(0,0,0,2,1,'#668000','external:http://metro-webdesign.info','Welcome','Thanks for downloading the template.<p> Please read the tutorial at <br> <strong>http://metro-webdesign.info</strong> when you start!',['','',''],'');
 	tileLive(0,2,0,1,1,"#C33","","Live tile","","","","",3000,["Welcome","Be Creative","And make it yours","Change the tiles...","..the tile config is just an example"],['','',''],"noClick");
 
 	tileFlip(0,0,1,1,1,"#F60","Typography","img/bg/img1.png","<h5 class='white'>Click here</h5>to see the typography",['Typography','#F60',''],'');
-	tileTitleTextImage(0,1,1,2,1,"#F90","","Another tile","This example demonstrates the usage of the tiles. It is not suited for direct use, please adapt the tiles types, positions and colors to your style.","img/icons/box_info.png",50,5,2,['','',''],'noClick');
+	tileTitleTextImage(0,1,1,2,1,"#F80","","Another tile","This example demonstrates the usage of the tiles. It is not suited for direct use, please adapt the tiles types, positions and colors to your style.","img/icons/box_info.png",50,5,2,['','',''],'noClick');
 	
 	tileImageSlider(0,0,2,2,1,'#854C8F','Terms of service','img/bg/img_300x145.jpg',1,"<h4 class='white'>Terms of Use! Must read!</h4>",0.4,['Must read','#854C8F','top'],'');
 	tileImageSlider(0,2,2,1,1,"#BBB","#&slideshows","img/arrows/arrowRight.png",0.3,"<h5 class='align-center'>Go to last tilegroup</h5>",0.5,['','',''],'');
